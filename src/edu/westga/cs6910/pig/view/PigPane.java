@@ -14,6 +14,8 @@ import javafx.scene.layout.Pane;
  * Defines a GUI for the Pig game.
  * This class was started by CS6910
  * 
+ * @author Alex Kernan
+ * @version 6/8/2021
  */
 public class PigPane extends BorderPane {
 	private Game theGame;
@@ -37,11 +39,13 @@ public class PigPane extends BorderPane {
 		
 		this.pnContent = new BorderPane();
 		
-		this.addFirstPlayerChooserPane(theGame);		
+		this.addFirstPlayerChooserPane(theGame);
+		this.humanPlayerPane(theGame);
 		
 		// TODO: 1. Using the 'first player chooser pane' as a guide
 		//  Create an HBox with the appropriate style, then make a human
 		//	player pane and add it to the HBox. Finally add the HBox to the content pane	
+		//DONE
 	
 		// TODO: 2. Using the other panes as a guide, create and add a status pane	
 
@@ -56,6 +60,15 @@ public class PigPane extends BorderPane {
 		this.pnChooseFirstPlayer = new NewGamePane(theGame);
 		topBox.getChildren().add(this.pnChooseFirstPlayer);
 		this.pnContent.setTop(topBox);
+	}
+	
+
+	private void humanPlayerPane(Game theGame) {
+		HBox humanPlayerBox = new HBox();
+		humanPlayerBox.getStyleClass().add("pane-border");	
+		this.pnHumanPlayer = new HumanPane(theGame);
+		humanPlayerBox.getChildren().add(this.pnHumanPlayer);
+		this.pnContent.setLeft(humanPlayerBox);
 	}
 
 	/**
