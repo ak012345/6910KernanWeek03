@@ -12,8 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 /**
- * Defines a GUI for the Pig game.
- * This class was started by CS6910
+ * Defines a GUI for the Pig game. This class was started by CS6910
  * 
  * @author Alex Kernan
  * @version 6/8/2021
@@ -25,32 +24,31 @@ public class PigPane extends BorderPane {
 	private ComputerPane pnComputerPlayer;
 	private StatusPane pnGameInfo;
 	private Pane pnChooseFirstPlayer;
-	
+
 	/**
-	 * Creates a pane object to provide the view for the specified
-	 * Game model object.
+	 * Creates a pane object to provide the view for the specified Game model
+	 * object.
 	 * 
-	 * @param theGame	the domain model object representing the Pig game
+	 * @param theGame the domain model object representing the Pig game
 	 * 
 	 * @requires theGame != null
-	 * @ensures	 the pane is displayed properly
+	 * @ensures the pane is displayed properly
 	 */
 	public PigPane(Game theGame) {
 		this.theGame = theGame;
-		
+
 		this.pnContent = new BorderPane();
-		
+
 		this.addFirstPlayerChooserPane(theGame);
 		this.humanPlayerPane(theGame);
 		this.statusPane(theGame);
 		this.computerPlayerPane(theGame);
-		
-		
+
 		// TODO: 1. Using the 'first player chooser pane' as a guide
-		//  Create an HBox with the appropriate style, then make a human
-		//	player pane and add it to the HBox. Finally add the HBox to the content pane	
+		// Create an HBox with the appropriate style, then make a human
+		// player pane and add it to the HBox. Finally add the HBox to the content pane
 //		DONE
-	
+
 		// TODO: 2. Using the other panes as a guide, create and add a status pane
 //		DONE
 
@@ -62,36 +60,36 @@ public class PigPane extends BorderPane {
 
 	private void addFirstPlayerChooserPane(Game theGame) {
 		HBox topBox = new HBox();
-		topBox.getStyleClass().add("pane-border");	
+		topBox.getStyleClass().add("pane-border");
 		this.pnChooseFirstPlayer = new NewGamePane(theGame);
 		topBox.getChildren().add(this.pnChooseFirstPlayer);
 		this.pnContent.setTop(topBox);
 	}
-	
 
 	private void humanPlayerPane(Game theGame) {
 		HBox humanPlayerBox = new HBox();
-		humanPlayerBox.getStyleClass().add("pane-border");	
+		humanPlayerBox.getStyleClass().add("pane-border");
 		this.pnHumanPlayer = new HumanPane(theGame);
 		humanPlayerBox.getChildren().add(this.pnHumanPlayer);
 		this.pnHumanPlayer.setDisable(true);
 		this.pnContent.setLeft(humanPlayerBox);
-		
+
 	}
-	
+
 	private void statusPane(Game theGame) {
 		HBox statusBox = new HBox();
-		statusBox.getStyleClass().add("pane-border");	
+		statusBox.getStyleClass().add("pane-border");
 		this.pnGameInfo = new StatusPane(theGame);
 		statusBox.getChildren().add(this.pnGameInfo);
 		this.pnContent.setCenter(statusBox);
 	}
-	
+
 	private void computerPlayerPane(Game theGame) {
 		HBox computerPlayerBox = new HBox();
-		computerPlayerBox.getStyleClass().add("pane-border");	
+		computerPlayerBox.getStyleClass().add("pane-border");
 		this.pnComputerPlayer = new ComputerPane(theGame);
 		computerPlayerBox.getChildren().add(this.pnComputerPlayer);
+		this.pnComputerPlayer.setDisable(true);
 		this.pnContent.setRight(computerPlayerBox);
 	}
 
@@ -101,34 +99,33 @@ public class PigPane extends BorderPane {
 	private final class NewGamePane extends GridPane {
 		private RadioButton radHumanPlayer;
 		private RadioButton radComputerPlayer;
-		
+
 		private Game theGame;
 		private Player theHuman;
 		private Player theComputer;
 
 		private NewGamePane(Game theGame) {
 			this.theGame = theGame;
-			
+
 			this.theHuman = this.theGame.getHumanPlayer();
 			this.theComputer = this.theGame.getComputerPlayer();
-			
+
 			this.buildPane();
 		}
-		
+
 		private void buildPane() {
 			this.setHgap(20);
-			
-			this.radHumanPlayer = new RadioButton(this.theHuman.getName() + " first");	
+
+			this.radHumanPlayer = new RadioButton(this.theHuman.getName() + " first");
 			this.radHumanPlayer.setOnAction(new HumanFirstListener());
-			
-			// TODO: Instantiate the computer player button and add 
-			//		 ComputerFirstListener as its action listener.
+
+			// TODO: Instantiate the computer player button and add
+			// ComputerFirstListener as its action listener.
 //			DONE
 
-			
-			this.radComputerPlayer = new RadioButton(this.theComputer.getName() + " first");	
+			this.radComputerPlayer = new RadioButton(this.theComputer.getName() + " first");
 			this.radComputerPlayer.setOnAction(new ComputerFirstListener());
-			
+
 			// TODO: Create a ToggleGroup and add the 2 radio buttons to it.
 //			DONE
 
@@ -137,19 +134,19 @@ public class PigPane extends BorderPane {
 			this.radComputerPlayer.setToggleGroup(firstMoveToggleGroup);
 			// TODO: Add the 2 radio buttons to this pane.
 //			DONE
-			this.add(this.radHumanPlayer, 1,0);
-			this.add(this.radComputerPlayer, 2,0);
-			
+			this.add(this.radHumanPlayer, 1, 0);
+			this.add(this.radComputerPlayer, 2, 0);
+
 		}
-		
-		/** 
+
+		/**
 		 * Defines the listener for computer player first button.
-		 */		
+		 */
 		private class ComputerFirstListener implements EventHandler<ActionEvent> {
 			@Override
-			/** 
-			 * Enables the ComputerPlayerPanel and starts a new game. 
-			 * Event handler for a click in the computerPlayerButton.
+			/**
+			 * Enables the ComputerPlayerPanel and starts a new game. Event handler for a
+			 * click in the computerPlayerButton.
 			 */
 			public void handle(ActionEvent arg0) {
 				PigPane.this.pnComputerPlayer.setDisable(false);
@@ -158,19 +155,19 @@ public class PigPane extends BorderPane {
 			}
 		}
 
-		/** 
+		/**
 		 * Defines the listener for human player first button.
-		 */	
+		 */
 		private class HumanFirstListener implements EventHandler<ActionEvent> {
-			/** 
-			 * Sets up user interface and starts a new game. 
-			 * Event handler for a click in the human player button.
+			/**
+			 * Sets up user interface and starts a new game. Event handler for a click in
+			 * the human player button.
 			 */
 			@Override
 			public void handle(ActionEvent event) {
 				PigPane.this.pnChooseFirstPlayer.setDisable(true);
 				// TODO: Enable the human player pane and start a game
-				//		 with the human playing first.
+				// with the human playing first.
 //				DONE
 				PigPane.this.pnHumanPlayer.setDisable(false);
 				PigPane.this.pnChooseFirstPlayer.setDisable(true);
