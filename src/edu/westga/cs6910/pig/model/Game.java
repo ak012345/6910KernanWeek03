@@ -98,7 +98,7 @@ public class Game implements Observable {
 	 * 
 	 * @return the human Player
 	 */
-	public HumanPlayer getHumanPlayer() {
+	public AbstractPlayer getHumanPlayer() {
 		return this.theHuman;
 	}
 

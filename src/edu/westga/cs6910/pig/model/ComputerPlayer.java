@@ -15,33 +15,21 @@ package edu.westga.cs6910.pig.model;
  * @author CS6910
  * @version Summer 2021
  */
-public class ComputerPlayer implements Player {
+public class ComputerPlayer extends AbstractPlayer {
 	private static final String NAME = "Simple computer";
-	private String name;
-	private DicePair thePair;
-	private boolean isMyTurn;
+	private int maximumRolls;
 	private int total;
 	private int turnTotal;
-	private int maximumRolls;
-	
+	private boolean isMyTurn;
 	/**
 	 * Creates a new ComputerPlayer with the specified name.
-	 * 
 	 */
 	public ComputerPlayer() {
 		this.name = NAME;
-		this.total = 0;
+		
 		this.thePair = new DicePair();
 	}
 
-	@Override
-	/**
-	 * @see Player#resetTurnTotal()
-	 */	
-	public void resetTurnTotal() {
-		this.turnTotal = 0;
-	}
-	
 	/**
 	 * Implements Player's setMaximumRolls, but is not normally
 	 * called by client objects.  Instead, clients usually
@@ -83,45 +71,5 @@ public class ComputerPlayer implements Player {
 			}		
 		}
 		this.isMyTurn = false;
-	}
-
-	@Override	
-	/**
-	 * @see Player#getIsMyTurn()
-	 */
-	public boolean getIsMyTurn() {
-		return this.isMyTurn;
-	}
-	
-	@Override	
-	/**
-	 * @see Player#getName()
-	 */
-	public String getName() {
-		return this.name;
-	}
-	
-	@Override	
-	/**
-	 * @see Player#getTurnTotal()
-	 */
-	public int getTurnTotal() {
-		return this.turnTotal;
-	}
-	
-	@Override	
-	/**
-	 * @see Player#getTotal()
-	 */
-	public int getTotal() {
-		return this.total;
-	}	
-	
-	@Override	
-	/**
-	 * @see Player#getDiceValues()
-	 */
-	public String getDiceValues() {	
-		return this.thePair.getDie1Value() + ", " + this.thePair.getDie2Value();
 	}
 }
