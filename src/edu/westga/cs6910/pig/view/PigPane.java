@@ -74,7 +74,9 @@ public class PigPane extends BorderPane {
 		humanPlayerBox.getStyleClass().add("pane-border");	
 		this.pnHumanPlayer = new HumanPane(theGame);
 		humanPlayerBox.getChildren().add(this.pnHumanPlayer);
+		this.pnHumanPlayer.setDisable(true);
 		this.pnContent.setLeft(humanPlayerBox);
+		
 	}
 	
 	private void statusPane(Game theGame) {

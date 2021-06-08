@@ -90,8 +90,11 @@ public class Game implements Observable {
 	 */
 	public void hold() {
 		// TODO: Swap whose turn it is.
+		if (!this.isGameOver()) {
+			swapWhoseTurn();
+		}
 		
-		this.isGameOver();
+		
 	}
 
 	/**
@@ -178,6 +181,14 @@ public class Game implements Observable {
 		//       the current player.  Note that in order to access the
 		//		 object inside of the ObjectProperty, you'll need to use
 		//		 getValue() and setValue()
+		
+		if(this.getCurrentPlayer() == this.theHuman) {
+			this.currentPlayerObject.set(this.theComputer);
+		} else {
+			this.currentPlayerObject.set(this.theHuman);
+		}
+		
+		
 
 	}
 
