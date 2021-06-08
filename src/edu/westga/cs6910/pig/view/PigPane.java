@@ -169,6 +169,10 @@ public class PigPane extends BorderPane {
 				PigPane.this.pnChooseFirstPlayer.setDisable(true);
 				// TODO: Enable the human player pane and start a game
 				//		 with the human playing first.
+//				DONE
+				PigPane.this.pnHumanPlayer.setDisable(false);
+				PigPane.this.pnChooseFirstPlayer.setDisable(true);
+				PigPane.this.theGame.startNewGame(NewGamePane.this.theHuman);
 
 			}
 		}
