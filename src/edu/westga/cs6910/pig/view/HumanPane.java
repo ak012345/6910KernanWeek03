@@ -1,7 +1,7 @@
 package edu.westga.cs6910.pig.view;
 
-import edu.westga.cs6910.pig.model.AbstractPlayer;
 import edu.westga.cs6910.pig.model.Game;
+import edu.westga.cs6910.pig.model.HumanPlayer;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.ActionEvent;
@@ -24,7 +24,7 @@ public class HumanPane extends GridPane implements InvalidationListener {
 	private Button btnHold;
 	private Label lblTurnTotal;
 
-	private AbstractPlayer theHuman;
+	private HumanPlayer theHuman;
 	private Game theGame;
 
 	/**
@@ -38,7 +38,7 @@ public class HumanPane extends GridPane implements InvalidationListener {
 		this.theGame = theGame;
 		this.theGame.addListener(this);
 
-		this.theHuman = this.theGame.getHumanPlayer();
+		this.theHuman = (HumanPlayer) this.theGame.getHumanPlayer();
 
 		this.buildPane();
 	}

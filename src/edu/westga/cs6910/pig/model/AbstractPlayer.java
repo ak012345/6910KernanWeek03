@@ -5,39 +5,31 @@ package edu.westga.cs6910.pig.model;
  * 
  * @author Alex Kernan
  * @version 6/8/2021
- *
  */
-public class AbstractPlayer implements Player{
+public abstract class AbstractPlayer implements Player {
 
 	protected String name;
 	protected DicePair thePair;
-	private boolean isMyTurn;
-	private int total;
-	private int turnTotal;
+	protected boolean isMyTurn;
+	protected int total;
+	protected int turnTotal;
 
-	public AbstractPlayer() {
-		super();
+	/**
+	 * Abstract constructor method
+	 * @param name the name of the player
+	 */
+	public AbstractPlayer(String name) {
+
+		this.name  = name;
+		this.thePair =  new DicePair();
+		
 	}
 
-
+	/**
+	 * reset tun total to zero
+	 */
 	public void resetTurnTotal() {
 		this.turnTotal = 0;
-	}
-
-
-	public void takeTurn() {	
-		this.thePair.rollDice();
-		
-		int die1Value = this.thePair.getDie1Value();
-		int die2Value = this.thePair.getDie2Value();
-		if (die1Value == 1 || die2Value == 1) {	
-			this.total -= this.turnTotal;
-			this.isMyTurn = false;
-		} else {
-			this.turnTotal += die1Value + die2Value;
-			this.total += die1Value + die2Value;
-			this.isMyTurn = true;
-		}
 	}
 
 	@Override
@@ -57,7 +49,7 @@ public class AbstractPlayer implements Player{
 
 	@Override
 	public String getDiceValues() {
-		//need null pointer exception handler
+
 		return this.thePair.getDie1Value() + ", " + this.thePair.getDie2Value();
 	}
 
