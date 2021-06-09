@@ -1,5 +1,12 @@
 package edu.westga.cs6910.pig.model;
 
+/**
+ * Abstract superclass that has common elements required of a Pig player.
+ * 
+ * @author Alex Kernan
+ * @version 6/8/2021
+ *
+ */
 public class AbstractPlayer implements Player{
 
 	protected String name;
@@ -50,6 +57,7 @@ public class AbstractPlayer implements Player{
 
 	@Override
 	public String getDiceValues() {
+		//need null pointer exception handler
 		return this.thePair.getDie1Value() + ", " + this.thePair.getDie2Value();
 	}
 

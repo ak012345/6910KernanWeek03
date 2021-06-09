@@ -18,6 +18,6 @@ public class HumanPlayer extends AbstractPlayer  {
 	 */
 	public HumanPlayer(String name) {
 		this.name = name;
-		this.thePair = new DicePair();
+		new DicePair();
 	}
 }
