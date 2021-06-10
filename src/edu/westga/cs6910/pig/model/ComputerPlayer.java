@@ -7,7 +7,7 @@ package edu.westga.cs6910.pig.model;
  * @author Alex Kernan
  * @version 6/8/2021
  */
-public class ComputerPlayer extends AbstractPlayer {
+public class ComputerPlayer extends AbstractPlayer  implements Player {
 	private static final String NAME = "Simple computer";
 	private int maximumRolls;
 
@@ -44,19 +44,25 @@ public class ComputerPlayer extends AbstractPlayer {
 	 */
 	public void takeTurn() {
 		for (int count = 0; count < this.maximumRolls; count++) {
-			super.thePair.rollDice();
+			super.getDicePair().rollDice();
 
-			int die1Value = super.thePair.getDie1Value();
-			int die2Value = super.thePair.getDie2Value();
+			int die1Value = super.getDicePair().getDie1Value();
+			int die2Value = super.getDicePair().getDie2Value();
+			int total =  super.getTotal();
+			int turnTotal = super.getTurnTotal();
+			
 			if (die1Value == 1 || die2Value == 1) {	
-				super.total -= super.turnTotal;
+				total -= turnTotal;
 			} else {
-				super.turnTotal += die1Value + die2Value;
-				super.total += die1Value + die2Value;
+				turnTotal += die1Value + die2Value;
+				total += die1Value + die2Value;
+				
+				super.setTotal(total);
+				super.setTurnTotal(turnTotal);
 				
 			}
 		}
-		super.isMyTurn = false;
+		super.setIsMyTurn(false);
 	}
 
 }

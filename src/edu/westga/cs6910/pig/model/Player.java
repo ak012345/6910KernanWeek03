@@ -50,4 +50,10 @@ public interface Player {
 	 * @return	The number of pips showing on the die that were just rolled
 	 */
 	String getDiceValues();
+	
+	/**
+	 * returns a DicePair object stored within a player object.
+	 * @return the DicePair object stored within a player object.  
+	 */
+	DicePair getDicePair();
 }

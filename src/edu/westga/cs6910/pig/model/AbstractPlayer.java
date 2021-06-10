@@ -8,21 +8,22 @@ package edu.westga.cs6910.pig.model;
  */
 public abstract class AbstractPlayer implements Player {
 
-	String name;
-	DicePair thePair;
-	boolean isMyTurn;
-	int total;
-	int turnTotal;
+	private String name;
+	private DicePair thePair;
+	private boolean isMyTurn;
+	private int total;
+	private int turnTotal;
 
 	/**
 	 * Abstract constructor method
+	 * 
 	 * @param name the name of the player
 	 */
 	public AbstractPlayer(String name) {
 
-		this.name  = name;
-		this.thePair =  new DicePair();
-		
+		this.name = name;
+		this.thePair = new DicePair();
+
 	}
 
 	/**
@@ -30,6 +31,40 @@ public abstract class AbstractPlayer implements Player {
 	 */
 	public void resetTurnTotal() {
 		this.turnTotal = 0;
+	}
+
+	/**
+	 * Sets the turnTotal instance variable. Utilizing default modifier so only
+	 * classes in this package can use it. cannot be part of the Player interface because
+	 * we are not able to down-grade the access modifier
+	 */
+	void setTurnTotal(int turnTotal) {
+		this.turnTotal = turnTotal;
+	}
+
+	/**
+	 * Sets the turnTotal instance variable. Utilizing default modifier so only
+	 * classes in this package can use it. cannot be part of the Player interface because
+	 * we are not able to down-grade the access modifier
+	 */
+	void setTotal(int total) {
+		this.total = total;
+	}
+
+	/**
+	 * Sets the turnTotal instance variable. Utilizing default modifier so only
+	 * classes in this package can use it.  cannot be part of the Player interface because
+	 * we are not able to down-grade the access modifier
+	 * 
+	 * @param isMyTurn boolean value if it is this players turn.
+	 */
+	void setIsMyTurn(boolean isMyTurn) {
+		this.isMyTurn = isMyTurn;
+	}
+
+	@Override
+	public DicePair getDicePair() {
+		return this.thePair;
 	}
 
 	@Override
@@ -49,7 +84,6 @@ public abstract class AbstractPlayer implements Player {
 
 	@Override
 	public String getDiceValues() {
-
 		return this.thePair.getDie1Value() + ", " + this.thePair.getDie2Value();
 	}
 

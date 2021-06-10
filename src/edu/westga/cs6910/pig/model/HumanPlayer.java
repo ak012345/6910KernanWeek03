@@ -26,17 +26,24 @@ public class HumanPlayer extends AbstractPlayer {
 	 * setting the players turn
 	 */
 	public void takeTurn() {
-		super.thePair.rollDice();
+		super.getDicePair().rollDice();
 
-		int die1Value = super.thePair.getDie1Value();
-		int die2Value = super.thePair.getDie2Value();
+		int die1Value = super.getDicePair().getDie1Value();
+		int die2Value = super.getDicePair().getDie2Value();
+		int total =  super.getTotal();
+		int turnTotal = super.getTurnTotal();
+		
 		if (die1Value == 1 || die2Value == 1) {
-			super.total -= super.turnTotal;
-			super.isMyTurn = false;
+			total -= turnTotal;
+			super.setIsMyTurn(false);
 		} else {
-			super.turnTotal += die1Value + die2Value;
-			super.total += die1Value + die2Value;
-			super.isMyTurn = true;
+			turnTotal += die1Value + die2Value;
+			total += die1Value + die2Value;
+			
+			super.setTotal(total);
+			super.setTurnTotal(turnTotal);
+			
+			super.setIsMyTurn(true);
 		}
 	}
 
