@@ -1,0 +1,36 @@
+
+body {
+    margin-top: 50px;
+}
+
+main {
+    align-self: center;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.row {
+   padding: 10px;
+}
+
+h1 {
+    font-weight: 900;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h3 {
+    font-style: italic;
+    font-weight: 700;
+}
+
+h4{
+margin-left: .5em;
+font-weight: 600;
+}
+
+hr {
+    border: none;
+    height: 4px;
+    color: #0059ff; /* old IE */
+    background-color: #0059ff; /* Modern Browsers */
+}

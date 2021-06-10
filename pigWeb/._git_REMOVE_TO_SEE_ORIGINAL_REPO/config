@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[gui]
+	wmstate = normal
+	geometry = 893x435+104+104 175 196
+[user]
+	email = akernan2@my.westga.edu
+	name = Alex Kernan (akernan2)
