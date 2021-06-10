@@ -8,11 +8,11 @@ package edu.westga.cs6910.pig.model;
  */
 public abstract class AbstractPlayer implements Player {
 
-	protected String name;
-	protected DicePair thePair;
-	protected boolean isMyTurn;
-	protected int total;
-	protected int turnTotal;
+	String name;
+	DicePair thePair;
+	boolean isMyTurn;
+	int total;
+	int turnTotal;
 
 	/**
 	 * Abstract constructor method
