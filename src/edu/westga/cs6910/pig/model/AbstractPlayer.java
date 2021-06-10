@@ -26,7 +26,7 @@ public abstract class AbstractPlayer implements Player {
 	}
 
 	/**
-	 * reset tun total to zero
+	 * reset turn total to zero
 	 */
 	public void resetTurnTotal() {
 		this.turnTotal = 0;
