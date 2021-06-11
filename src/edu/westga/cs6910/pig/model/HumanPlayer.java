@@ -35,16 +35,17 @@ public class HumanPlayer extends AbstractPlayer {
 		
 		if (die1Value == 1 || die2Value == 1) {
 			total -= turnTotal;
+			
+			super.resetTurnTotal();
 			super.setIsMyTurn(false);
 		} else {
 			turnTotal += die1Value + die2Value;
 			total += die1Value + die2Value;
-			
-			super.setTotal(total);
 			super.setTurnTotal(turnTotal);
-			
+		
 			super.setIsMyTurn(true);
 		}
+		super.setTotal(total);
 	}
 
 }
