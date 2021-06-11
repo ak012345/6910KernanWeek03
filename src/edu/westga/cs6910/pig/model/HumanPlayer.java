@@ -35,7 +35,7 @@ public class HumanPlayer extends AbstractPlayer {
 		
 		if (die1Value == 1 || die2Value == 1) {
 			total -= turnTotal;
-			
+	
 			super.resetTurnTotal();
 			super.setIsMyTurn(false);
 		} else {
