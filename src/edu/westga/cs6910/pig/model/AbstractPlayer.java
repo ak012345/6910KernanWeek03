@@ -38,13 +38,16 @@ public abstract class AbstractPlayer implements Player {
 	}
 
 	/**
-	 * Sets the turnTotal instance variable. Utilizing default modifier so only
-	 * classes in this package can use it. cannot be part of the Player interface
-	 * because we are not able to down-grade the access modifier
+	 * Sets the turnTotal instance variable. Utilizing Public access modifier while
+	 * testing, but should adopt default modifier when testing-compete so only classes in this package can
+	 * use it. cannot be part of the Player interface because it isn't possible to 
+	 * down-grade the access modifier
 	 * 
 	 * @requires turnTotal >= 0
+	 * @param turnTotal the total for the current turn
+	 * 
 	 */
-	void setTurnTotal(int turnTotal) {
+	public void setTurnTotal(int turnTotal) {
 		if (turnTotal < 0) {
 			throw new IllegalArgumentException("turnTotal cannot be negative");
 		}
@@ -52,11 +55,15 @@ public abstract class AbstractPlayer implements Player {
 	}
 
 	/**
-	 * Sets the turnTotal instance variable. Utilizing default modifier so only
-	 * classes in this package can use it. cannot be part of the Player interface
-	 * because we are not able to down-grade the access modifier
+	 * Sets the total instance variable. Utilizing Public access modifier while
+	 * testing, but should adopt default modifier when testing-compete so only classes in this package can
+	 * use it. cannot be part of the Player interface because it isn't possible to 
+	 * down-grade the access modifier
+	 * 
+	 * @requires total >= 0
+	 * @param total the total score the the player, during the entire game. 
 	 */
-	void setTotal(int total) {
+	public void setTotal(int total) {
 		if (total < 0) {
 			throw new IllegalArgumentException("total cannot be negative");
 		}
