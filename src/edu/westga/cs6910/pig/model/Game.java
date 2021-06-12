@@ -34,11 +34,17 @@ public class Game implements Observable {
 	 * @ensure humanPlayer().equals(theHuman) && computerPlayer.equals(theComputer)
 	 */
 	public Game(HumanPlayer theHuman, ComputerPlayer theComputer) {
+		
+		if (theHuman == null) {
+			throw new IllegalArgumentException("HumanPlayer cannot be null");
+		}
+		if (theComputer == null) {
+			throw new IllegalArgumentException("ComputerPlayer cannot be null");
+		}
+
 		this.theHuman = theHuman;
 		this.theComputer = theComputer;
-
 		this.currentPlayerObject = new SimpleObjectProperty<Player>();
-
 		this.thePair = new DicePair();
 	}
 
@@ -47,11 +53,21 @@ public class Game implements Observable {
 	 * 
 	 * @param firstPlayer the Player who takes the first turn
 	 * 
-	 * @require firstPlayer != null && !firstPlayer.equals(secondPlayer)
+	 * @require firstPlayer != null && firstPlayer.getTotal() == 0
 	 * 
-	 * @ensures whoseTurn().equals(firstPlayer) && firstPlayer.getTotal() == 0
+	 * @ensures whoseTurn().equals(firstPlayer)
 	 */
 	public void startNewGame(Player firstPlayer) {
+		if (firstPlayer == null) {
+			throw new IllegalArgumentException("Player cannot be null");
+		}
+		if (firstPlayer.getTotal() != 0) {
+			throw new IllegalArgumentException("This player already has a score");
+		}
+		if (firstPlayer.getTurnTotal() != 0) {
+			throw new IllegalArgumentException("This player has already taken a turn");
+		}
+		
 		firstPlayer.setIsMyTurn(true);
 		this.currentPlayerObject.setValue(firstPlayer);
 		this.thePair = new DicePair();
@@ -82,7 +98,6 @@ public class Game implements Observable {
 	 * 
 	 * @requires !isGameOver()
 	 * 
-	 * @ensures !whoseTurn().equals(whoseTurn()@prev)
 	 */
 	public void hold() {
 		
