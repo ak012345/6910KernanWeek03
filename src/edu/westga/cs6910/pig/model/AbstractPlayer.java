@@ -17,13 +17,17 @@ public abstract class AbstractPlayer implements Player {
 	/**
 	 * Abstract constructor method
 	 * 
+	 * @requires name != null
 	 * @param name the name of the player
 	 */
 	public AbstractPlayer(String name) {
-
+		if (name == null) {
+			throw new IllegalArgumentException("Player's name cannot be null");
+		}
 		this.name = name;
 		this.thePair = new DicePair();
-
+		this.total = 0;
+		this.turnTotal = 0;
 	}
 
 	/**
@@ -35,23 +39,31 @@ public abstract class AbstractPlayer implements Player {
 
 	/**
 	 * Sets the turnTotal instance variable. Utilizing default modifier so only
-	 * classes in this package can use it. cannot be part of the Player interface because
-	 * we are not able to down-grade the access modifier
+	 * classes in this package can use it. cannot be part of the Player interface
+	 * because we are not able to down-grade the access modifier
+	 * 
+	 * @requires turnTotal >= 0
 	 */
 	void setTurnTotal(int turnTotal) {
+		if (turnTotal < 0) {
+			throw new IllegalArgumentException("turnTotal cannot be negative");
+		}
 		this.turnTotal = turnTotal;
 	}
 
 	/**
 	 * Sets the turnTotal instance variable. Utilizing default modifier so only
-	 * classes in this package can use it. cannot be part of the Player interface because
-	 * we are not able to down-grade the access modifier
+	 * classes in this package can use it. cannot be part of the Player interface
+	 * because we are not able to down-grade the access modifier
 	 */
 	void setTotal(int total) {
+		if (total < 0) {
+			throw new IllegalArgumentException("total cannot be negative");
+		}
 		this.total = total;
 	}
 
-    @Override
+	@Override
 	public void setIsMyTurn(boolean isMyTurn) {
 		this.isMyTurn = isMyTurn;
 	}

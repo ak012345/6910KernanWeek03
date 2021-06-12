@@ -8,7 +8,7 @@ package edu.westga.cs6910.pig.model;
  * @version 6/8/2021
  */
 public class ComputerPlayer extends AbstractPlayer {
-	private static final String NAME = "Simple computer";
+	private static final String NAME = "Simple Computer";
 	private int maximumRolls;
 
 	/**
@@ -23,10 +23,15 @@ public class ComputerPlayer extends AbstractPlayer {
 	 * Implements Player's setMaximumRolls, but is not normally called by client
 	 * objects. Instead, clients usually call the 0-parameter version
 	 * 
+	 * @requires maximumRolls >0
+	 * 
 	 * @param maximumRolls The maximum number of times the computer will roll before
 	 *                     holding
 	 */
 	public void setMaximumRolls(int maximumRolls) {
+		if (maximumRolls <= 0) {
+			throw new IllegalArgumentException("Maximum number of rolls must be greater than 0");
+		}
 		this.maximumRolls = maximumRolls;
 	}
 

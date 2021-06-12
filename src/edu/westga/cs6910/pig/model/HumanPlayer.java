@@ -13,12 +13,10 @@ public class HumanPlayer extends AbstractPlayer {
 	 * 
 	 * @param name this Player's name
 	 * 
-	 * @requires name != null
 	 * @ensure name().equals(name) && getTotal() == 0
 	 */
 	public HumanPlayer(String name) {
 		super(name);
-
 	}
 
 	/**
