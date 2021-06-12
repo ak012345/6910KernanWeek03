@@ -53,16 +53,14 @@ public class ComputerPlayer extends AbstractPlayer {
 			
 			if (die1Value == 1 || die2Value == 1) {	
 				total -= turnTotal;
-				
 				super.resetTurnTotal();
 			} else {
+
 				turnTotal += die1Value + die2Value;
 				total += die1Value + die2Value;
-				
 				super.setTurnTotal(turnTotal);
-				
 			}
-			super.setTotal(total);
+			super.setTotal(total);	
 		}
 		super.setIsMyTurn(false);
 	}

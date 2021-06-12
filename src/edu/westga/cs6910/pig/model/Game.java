@@ -15,7 +15,7 @@ public class Game implements Observable {
 	/**
 	 * The goal score for the game
 	 */
-	public static final int GOAL_SCORE = 20;
+	public static final int GOAL_SCORE = 2000;
 
 	private ObjectProperty<Player> currentPlayerObject;
 	private HumanPlayer theHuman;
@@ -74,7 +74,6 @@ public class Game implements Observable {
 
 		if (!this.currentPlayerObject.getValue().getIsMyTurn()) {
 			this.hold();
-			this.currentPlayerObject.getValue().resetTurnTotal();
 		}
 	}
 
@@ -169,8 +168,12 @@ public class Game implements Observable {
 	private void swapWhoseTurn() {
 		if (this.getCurrentPlayer() == this.theHuman) {
 			this.currentPlayerObject.set(this.theComputer);
+			this.theComputer.setIsMyTurn(true);
+			this.theComputer.resetTurnTotal();
 		} else {
 			this.currentPlayerObject.set(this.theHuman);
+			this.theHuman.setIsMyTurn(true);
+			this.theHuman.resetTurnTotal();
 		}
 
 	}

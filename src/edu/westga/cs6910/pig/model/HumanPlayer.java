@@ -42,8 +42,6 @@ public class HumanPlayer extends AbstractPlayer {
 			turnTotal += die1Value + die2Value;
 			total += die1Value + die2Value;
 			super.setTurnTotal(turnTotal);
-		
-			super.setIsMyTurn(true);
 		}
 		super.setTotal(total);
 	}
