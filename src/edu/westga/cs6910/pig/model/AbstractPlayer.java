@@ -51,14 +51,8 @@ public abstract class AbstractPlayer implements Player {
 		this.total = total;
 	}
 
-	/**
-	 * Sets the turnTotal instance variable. Utilizing default modifier so only
-	 * classes in this package can use it.  cannot be part of the Player interface because
-	 * we are not able to down-grade the access modifier
-	 * 
-	 * @param isMyTurn boolean value if it is this players turn.
-	 */
-	void setIsMyTurn(boolean isMyTurn) {
+    @Override
+	public void setIsMyTurn(boolean isMyTurn) {
 		this.isMyTurn = isMyTurn;
 	}
 

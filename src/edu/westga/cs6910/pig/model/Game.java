@@ -52,8 +52,8 @@ public class Game implements Observable {
 	 * @ensures whoseTurn().equals(firstPlayer) && firstPlayer.getTotal() == 0
 	 */
 	public void startNewGame(Player firstPlayer) {
+		firstPlayer.setIsMyTurn(true);
 		this.currentPlayerObject.setValue(firstPlayer);
-
 		this.thePair = new DicePair();
 	}
 
