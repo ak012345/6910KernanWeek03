@@ -150,7 +150,6 @@ public class Game implements Observable {
 		return false;
 	}
 
-
 	/**
 	 * Returns a String showing the goal score, or, if the game is over, the name of
 	 * the winner.
