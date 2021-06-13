@@ -8,8 +8,8 @@ import javafx.beans.property.SimpleObjectProperty;
 /**
  * Game represents a Pig game.
  * 
- * @author CS6910
- * @version Summer 2021
+ * @author ALex Kernan
+ * @version 6/12/2021
  */
 public class Game implements Observable {
 	/**
@@ -43,7 +43,7 @@ public class Game implements Observable {
 		this.theHuman = theHuman;
 		this.theComputer = theComputer;
 		this.currentPlayerObject = new SimpleObjectProperty<Player>();
-		
+
 	}
 
 	/**
@@ -74,14 +74,14 @@ public class Game implements Observable {
 	 * Conducts a move in the game, allowing the appropriate Player to take a turn.
 	 * Has no effect if the game is over.
 	 * 
-
+	 * 
 	 * 
 	 * @ensures !whoseTurn().equals(whoseTurn()@prev)
 	 */
 	public void play() {
-		
+
 		Player currentPlayer = this.currentPlayerObject.getValue();
-		
+
 		this.currentPlayerObject.getValue().takeTurn();
 
 		this.currentPlayerObject.setValue(null);
@@ -90,7 +90,7 @@ public class Game implements Observable {
 		if (!this.currentPlayerObject.getValue().getIsMyTurn()) {
 			this.hold();
 		}
-		
+
 	}
 
 	/**
