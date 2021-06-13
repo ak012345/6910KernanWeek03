@@ -98,6 +98,7 @@ public class HumanPane extends GridPane implements InvalidationListener {
 		 * Tells the Game to have its current player (i.e., the human Player) take its
 		 * turn.
 		 * 
+		 * @requires !isGameOver()
 		 */
 		@Override
 		public void handle(ActionEvent event) {
@@ -112,6 +113,7 @@ public class HumanPane extends GridPane implements InvalidationListener {
 		 * Tells the Game that its current player (i.e., the human Player) will be
 		 * holding
 		 * 
+		 * @requires !isGameOver()
 		 */
 		@Override
 		public void handle(ActionEvent event) {

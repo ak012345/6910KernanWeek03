@@ -34,7 +34,7 @@ public class Game implements Observable {
 	 * @ensure humanPlayer().equals(theHuman) && computerPlayer.equals(theComputer)
 	 */
 	public Game(HumanPlayer theHuman, ComputerPlayer theComputer) {
-		
+
 		if (theHuman == null) {
 			throw new IllegalArgumentException("HumanPlayer cannot be null");
 		}
@@ -67,22 +67,23 @@ public class Game implements Observable {
 		if (firstPlayer.getTurnTotal() != 0) {
 			throw new IllegalArgumentException("This player has already taken a turn");
 		}
-		
+
 		firstPlayer.setIsMyTurn(true);
 		this.currentPlayerObject.setValue(firstPlayer);
-		this.thePair = new DicePair();
 	}
 
 	/**
 	 * Conducts a move in the game, allowing the appropriate Player to take a turn.
 	 * Has no effect if the game is over.
 	 * 
-	 * @requires !isGameOver()
+
 	 * 
 	 * @ensures !whoseTurn().equals(whoseTurn()@prev)
 	 */
 	public void play() {
+		
 		Player currentPlayer = this.currentPlayerObject.getValue();
+		
 		this.currentPlayerObject.getValue().takeTurn();
 
 		this.currentPlayerObject.setValue(null);
@@ -91,6 +92,7 @@ public class Game implements Observable {
 		if (!this.currentPlayerObject.getValue().getIsMyTurn()) {
 			this.hold();
 		}
+		
 	}
 
 	/**
@@ -100,7 +102,7 @@ public class Game implements Observable {
 	 * 
 	 */
 	public void hold() {
-		
+
 		if (!this.isGameOver()) {
 			this.swapWhoseTurn();
 		}
@@ -183,10 +185,12 @@ public class Game implements Observable {
 	private void swapWhoseTurn() {
 		if (this.getCurrentPlayer() == this.theHuman) {
 			this.currentPlayerObject.set(this.theComputer);
+			this.currentPlayerObject.getValue().setIsMyTurn(true);
 			this.theComputer.setIsMyTurn(true);
 			this.theComputer.resetTurnTotal();
 		} else {
 			this.currentPlayerObject.set(this.theHuman);
+			this.currentPlayerObject.getValue().setIsMyTurn(true);
 			this.theHuman.setIsMyTurn(true);
 			this.theHuman.resetTurnTotal();
 		}
