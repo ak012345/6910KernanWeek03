@@ -9,6 +9,8 @@ import edu.westga.cs6910.pig.model.Game;
 import edu.westga.cs6910.pig.model.HumanPlayer;
 
 /**
+ * JUnit test that ensures the first-player at the start of the game is set to
+ * be the current player (necessary to play the game in proper order)
  * 
  * @author Alex Kernan
  * @version 6/12/2021
@@ -24,7 +26,7 @@ class TestGameWhenStartNewGame {
 		testGame.startNewGame(testHuman);
 		assertEquals(testHuman, testGame.getCurrentPlayer());
 	}
-	
+
 	@Test
 	void testStartNewGameComputerGoesFirst() {
 		HumanPlayer testHuman = new HumanPlayer("Alex");

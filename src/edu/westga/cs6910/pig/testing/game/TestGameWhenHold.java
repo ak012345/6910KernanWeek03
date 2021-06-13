@@ -10,7 +10,6 @@ import edu.westga.cs6910.pig.model.HumanPlayer;
 import edu.westga.cs6910.pig.model.Player;
 
 /**
- * 
  * JUnit Test the validates the Game object's hold() method switches the current player
  * 
  * @author Alex Kernan

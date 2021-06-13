@@ -8,6 +8,15 @@ import edu.westga.cs6910.pig.model.ComputerPlayer;
 import edu.westga.cs6910.pig.model.Game;
 import edu.westga.cs6910.pig.model.HumanPlayer;
 
+/**
+ * 
+ * This JUnit test ensures various play-styles/ways in which the game could be
+ * played always culminate one player or the other winning.
+ * 
+ * @author Alex Kernan
+ * @verison 6/12/2021
+ *
+ */
 class TestGameWhenIsGameOver {
 
 	@Test
