@@ -61,10 +61,7 @@ class TestGameWhenIsGameOver {
 		while (!testGame.isGameOver()) {
 			randomChanceToRoll = Math.random();
 
-			if (testGame.getHumanPlayer().getIsMyTurn() && randomChanceToRoll > shouldRollThreshHold) {
-				testGame.play();
-			} else if (testGame.getCurrentPlayer() != testGame.getComputerPlayer()) {
-
+			if (testGame.getHumanPlayer().getIsMyTurn() && randomChanceToRoll < shouldRollThreshHold) {
 				testGame.hold();
 			} else {
 				testGame.play();
