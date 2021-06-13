@@ -25,12 +25,4 @@ class TestGameWhenCreateGame {
 		assertEquals("Goal Score: 20\r\n" + "Alex: 0\r\n" + "Simple Computer: 0", testGame.toString());
 	}
 
-	@Test
-	void testConstructorAndGetDicePair() {
-		HumanPlayer testHuman = new HumanPlayer("Alex");
-		ComputerPlayer testComputer = new ComputerPlayer();
-		Game testGame = new Game(testHuman, testComputer);
-		assertEquals("1, 1", testGame.getDicePair().toString());
-	}
-
 }

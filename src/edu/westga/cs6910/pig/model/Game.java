@@ -21,8 +21,6 @@ public class Game implements Observable {
 	private HumanPlayer theHuman;
 	private ComputerPlayer theComputer;
 
-	private DicePair thePair;
-
 	/**
 	 * Creates a Pig Game with the specified Players and a pair of dice.
 	 * 
@@ -45,7 +43,7 @@ public class Game implements Observable {
 		this.theHuman = theHuman;
 		this.theComputer = theComputer;
 		this.currentPlayerObject = new SimpleObjectProperty<Player>();
-		this.thePair = new DicePair();
+		
 	}
 
 	/**
@@ -152,14 +150,6 @@ public class Game implements Observable {
 		return false;
 	}
 
-	/**
-	 * Returns the pair of dice being used in the game
-	 * 
-	 * @return the pair of dice
-	 */
-	public DicePair getDicePair() {
-		return this.thePair;
-	}
 
 	/**
 	 * Returns a String showing the goal score, or, if the game is over, the name of
