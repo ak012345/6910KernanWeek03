@@ -7,17 +7,20 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6910.pig.model.Die;
 
 /**
- * Tests that a die object is created as expected
+ * 
+ * Test that the getNumebrOfPips() method returns the Expected integer Value.
  * 
  * @author Alex Kernan
  * @version 6/12/2021
+ *
  */
-public class TestDieWhenCreateDie {
+
+public class TestWhenGetPips {
 
 	@Test
-	void testWhenDieIsCreated() {
+	void testWithNewDieShouldHave1Pip() {
 		Die testDie = new Die();
-		assertEquals("pips: 1", testDie.toString());
+		assertEquals(1, testDie.getNumberOfPips());
 	}
 
 }

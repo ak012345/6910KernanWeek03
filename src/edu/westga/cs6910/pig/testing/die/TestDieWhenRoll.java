@@ -19,10 +19,10 @@ class TestDieWhenRoll {
 	@Test
 	void testWhenRollSingleDieWithFiftyAttempts() {
 		Die testDie = new Die();
-		for (int rollNumber = 0; rollNumber < 50; rollNumber++) {
+		for (int rollNumber = 0; rollNumber < 10000; rollNumber++) {
 			testDie.roll();
 			if ((testDie.getNumberOfPips() < 1) || (testDie.getNumberOfPips() > 6)) {
-				fail("Bad die value! Number of pips:  " + testDie.getNumberOfPips());
+				fail("Rolled a die with value:  " + testDie.getNumberOfPips());
 			}
 		}
 	}
