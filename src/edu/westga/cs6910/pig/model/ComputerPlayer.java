@@ -37,6 +37,17 @@ public class ComputerPlayer extends AbstractPlayer {
 	}
 
 	/**
+	 * Getter method for the maximumRolls instance variable
+	 * 
+	 * @return maximumRolls the number of rolls the computer should make in it's
+	 * turn
+	 */
+	public int getMaximumNumberOfRolls() {
+		return this.maximumRolls;
+
+	}
+
+	/**
 	 * Implements Player's setMaximumRolls() to set the maximum number of rolls to 1
 	 * 
 	 */
@@ -54,10 +65,10 @@ public class ComputerPlayer extends AbstractPlayer {
 
 			int die1Value = super.getDicePair().getDie1Value();
 			int die2Value = super.getDicePair().getDie2Value();
-			int total =  super.getTotal();
+			int total = super.getTotal();
 			int turnTotal = super.getTurnTotal();
-			
-			if (die1Value == 1 || die2Value == 1) {	
+
+			if (die1Value == 1 || die2Value == 1) {
 				total -= turnTotal;
 				super.resetTurnTotal();
 			} else {
@@ -66,7 +77,7 @@ public class ComputerPlayer extends AbstractPlayer {
 				total += die1Value + die2Value;
 				super.setTurnTotal(turnTotal);
 			}
-			super.setTotal(total);	
+			super.setTotal(total);
 		}
 		super.setIsMyTurn(false);
 	}

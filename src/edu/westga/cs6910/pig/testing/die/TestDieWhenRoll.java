@@ -17,7 +17,7 @@ import edu.westga.cs6910.pig.model.Die;
 class TestDieWhenRoll {
 
 	@Test
-	void testWhenRollSingleDieWithFiftyAttempts() {
+	void testWhenRollSingleDieWithTenThousandAttempts() {
 		Die testDie = new Die();
 		for (int rollNumber = 0; rollNumber < 10000; rollNumber++) {
 			testDie.roll();

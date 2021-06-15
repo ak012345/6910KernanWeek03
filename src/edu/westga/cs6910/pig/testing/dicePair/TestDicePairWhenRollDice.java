@@ -18,10 +18,10 @@ import edu.westga.cs6910.pig.model.DicePair;
 public class TestDicePairWhenRollDice {
 
 	@Test
-	void testWhenRollDicePairFiftyTimes() {
+	void testWhenRollDicePairTenThousandTimes() {
 		DicePair testPair = new DicePair();
 
-		for (int rollNumber = 0; rollNumber < 50; rollNumber++) {
+		for (int rollNumber = 0; rollNumber < 10000; rollNumber++) {
 			testPair.rollDice();
 			if ((testPair.getDie1Value() < 1) || (testPair.getDie1Value() > 6)) {
 				fail("Bad Die1 value! Number was:  " + testPair.getDie1Value());
