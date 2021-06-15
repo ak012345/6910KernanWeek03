@@ -15,7 +15,7 @@ import edu.westga.cs6910.pig.model.HumanPlayer;
  * @author Alex Kernan
  * @version 6/12/2021
  */
-class TestGameWhenCreateGame {
+public class TestGameWhenCreateGame {
 
 	@Test
 	void testConstructorAndToStringMethodWhenCreateGameObject() {

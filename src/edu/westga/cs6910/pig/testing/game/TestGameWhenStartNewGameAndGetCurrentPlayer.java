@@ -16,7 +16,7 @@ import edu.westga.cs6910.pig.model.HumanPlayer;
  * @version 6/12/2021
  *
  */
-class TestGameWhenStartNewGame {
+class TestGameWhenStartNewGameAndGetCurrentPlayer {
 
 	@Test
 	void testStartNewGameHumanGoesFirst() {
