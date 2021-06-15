@@ -12,7 +12,7 @@ import edu.westga.cs6910.pig.model.HumanPlayer;
  * @author Alex Kernan
  * @version 3/14/2021
  */
-class TestHumanPlayerWhenSetAndGetTurnTotal {
+public class TestHumanPlayerWhenSetAndGetTurnTotal {
 
 	@Test
 	void testWhenSettingTotalTo50() {
