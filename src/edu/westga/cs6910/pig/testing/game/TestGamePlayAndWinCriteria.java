@@ -17,7 +17,7 @@ import edu.westga.cs6910.pig.model.HumanPlayer;
  * @verison 6/12/2021
  *
  */
-class TestGameWhenIsGameOver {
+class TestGamePlayAndWinCriteria {
 
 	@Test
 	void testGameWinCriteriaHumanPlayerRollsEveryTimeUnlessHitAOne() {

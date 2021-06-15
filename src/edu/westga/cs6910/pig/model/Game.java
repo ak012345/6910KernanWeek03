@@ -74,8 +74,6 @@ public class Game implements Observable {
 	 * Conducts a move in the game, allowing the appropriate Player to take a turn.
 	 * Has no effect if the game is over.
 	 * 
-	 * 
-	 * 
 	 * @ensures !whoseTurn().equals(whoseTurn()@prev)
 	 */
 	public void play() {
@@ -100,11 +98,9 @@ public class Game implements Observable {
 	 * 
 	 */
 	public void hold() {
-
 		if (!this.isGameOver()) {
 			this.swapWhoseTurn();
 		}
-
 	}
 
 	/**
