@@ -6,6 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs6910.pig.model.HumanPlayer;
 
+/**
+ * JUnit that tests the TurnTOtal setter/getter
+ * 
+ * @author Alex Kernan
+ * @version 3/14/2021
+ */
 class TestHumanPlayerWhenSetAndGetTurnTotal {
 
 	@Test
