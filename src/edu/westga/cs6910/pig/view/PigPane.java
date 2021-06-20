@@ -6,8 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -51,18 +53,44 @@ public class PigPane extends BorderPane {
 
 	private void windowMenu() {
 		MenuBar windowMenu = new MenuBar();
-		Menu fileMenu = this.createFileMenu();
+		Menu gameMenu = this.createGameMenu();
 		Menu computerStrategyMenu = this.createComputerStrategyMenu();
-		windowMenu.getMenus().addAll(fileMenu, computerStrategyMenu);
+		windowMenu.getMenus().addAll(gameMenu, computerStrategyMenu);
 		this.setTop(windowMenu);
 	}
 
-	private Menu createFileMenu() {
-		return null;
+	private Menu createGameMenu() {
+		Menu gameMenu = new Menu("_Game");
+		gameMenu.setMnemonicParsing(true);
+		gameMenu.setAccelerator(KeyCombination.valueOf("Ctrl+G"));
+
+		MenuItem exitGame = new MenuItem("E_xit");
+		exitGame.setMnemonicParsing(true);
+		exitGame.setAccelerator(KeyCombination.valueOf("Ctrl+X"));
+		exitGame.setOnAction(actionEvent -> System.exit(0));
+		gameMenu.getItems().add(exitGame);
+		return gameMenu;
 	}
 
 	private Menu createComputerStrategyMenu() {
-		return null;
+		Menu computerStrategy = new Menu("_Strategy");
+		computerStrategy.setMnemonicParsing(true);
+		computerStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+S"));
+
+		MenuItem cautiousStrategy = new MenuItem("_Cautious");
+		cautiousStrategy.setMnemonicParsing(true);
+		cautiousStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+C"));
+
+		MenuItem greedyStrategy = new MenuItem("Gr_eedy");
+		greedyStrategy.setMnemonicParsing(true);
+		greedyStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+E"));
+
+		MenuItem randomStrategy = new MenuItem("_Random");
+		randomStrategy.setMnemonicParsing(true);
+		randomStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+R"));
+
+		computerStrategy.getItems().addAll(cautiousStrategy, randomStrategy, greedyStrategy);
+		return computerStrategy;
 	}
 
 	private void addFirstPlayerChooserPane(Game theGame) {
