@@ -4,6 +4,8 @@ import edu.westga.cs6910.pig.model.Game;
 import edu.westga.cs6910.pig.model.Player;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
@@ -43,7 +45,24 @@ public class PigPane extends BorderPane {
 		this.humanPlayerPane(theGame);
 		this.statusPane(theGame);
 		this.computerPlayerPane(theGame);
+		this.windowMenu();
 		this.setCenter(this.pnContent);
+	}
+
+	private void windowMenu() {
+		MenuBar windowMenu = new MenuBar();
+		Menu fileMenu = this.createFileMenu();
+		Menu computerStrategyMenu = this.createComputerStrategyMenu();
+		windowMenu.getMenus().addAll(fileMenu, computerStrategyMenu);
+		this.setTop(windowMenu);
+	}
+
+	private Menu createFileMenu() {
+		return null;
+	}
+
+	private Menu createComputerStrategyMenu() {
+		return null;
 	}
 
 	private void addFirstPlayerChooserPane(Game theGame) {
