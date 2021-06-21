@@ -10,18 +10,17 @@ package edu.westga.cs6910.pig.model.strategies;
  */
 
 public class RandomStrategy implements PigStrategy {
+	private String stragetyName = "Random";
 
 	@Override
 	public boolean rollAgain(int numberRollsThisTurn, int numberPointsThisTurn,
 			int differenceBetweenFinalAndCurrentPoints) {
+		return Math.random() > .5;
+	}
 
-		boolean rollAgain = Math.random() > .5;
-//		if (rollAgain) {
-//			System.out.println("Rolling again..." + rollAgain);
-//		} else {
-//			System.out.println("NO roll again: " + rollAgain);
-//		}
-		return rollAgain;
+	@Override
+	public String getStrategyName() {
+		return this.stragetyName;
 	}
 
 }

@@ -27,7 +27,7 @@ class TestComputerPlayerWhenCreateComputerPlayer {
 	void testWhenCreateComputerNameIsAlex() {
 		PigStrategy currentStrategy =  new CautiousStrategy();
 		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
-		assertEquals("Simple Computer", testComputerPlayer.getName());
+		assertEquals("Computer", testComputerPlayer.getName());
 	}
 
 	@Test

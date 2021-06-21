@@ -39,9 +39,9 @@ public abstract class AbstractPlayer implements Player {
 
 	/**
 	 * Sets the turnTotal instance variable. Utilizing Public access modifier while
-	 * testing, but should adopt default modifier when testing-compete so only classes in this package can
-	 * use it. cannot be part of the Player interface because it isn't possible to 
-	 * down-grade the access modifier
+	 * testing, but should adopt default modifier when testing-compete so only
+	 * classes in this package can use it. cannot be part of the Player interface
+	 * because it isn't possible to down-grade the access modifier
 	 * 
 	 * @requires turnTotal >= 0
 	 * @param turnTotal the total for the current turn
@@ -56,12 +56,12 @@ public abstract class AbstractPlayer implements Player {
 
 	/**
 	 * Sets the total instance variable. Utilizing Public access modifier while
-	 * testing, but should adopt default modifier when testing-compete so only classes in this package can
-	 * use it. cannot be part of the Player interface because it isn't possible to 
-	 * down-grade the access modifier
+	 * testing, but should adopt default modifier when testing-compete so only
+	 * classes in this package can use it. cannot be part of the Player interface
+	 * because it isn't possible to down-grade the access modifier
 	 * 
 	 * @requires total >= 0
-	 * @param total the total score the the player, during the entire game. 
+	 * @param total the total score the the player, during the entire game.
 	 */
 	public void setTotal(int total) {
 		if (total < 0) {
@@ -69,16 +69,12 @@ public abstract class AbstractPlayer implements Player {
 		}
 		this.total = total;
 	}
-	
-//	/**
-//	 * sets the computer name instance variable.
-//	 * 
-//	 * @param name of the computer
-//	 */
-//	public void setComputerPlayerName(String name) {
-//		this.name = name;
-//
-//	}
+
+	@Override
+	public void setName(String name) {
+		this.name = name;
+
+	}
 
 	@Override
 	public void setIsMyTurn(boolean isMyTurn) {
@@ -114,20 +110,20 @@ public abstract class AbstractPlayer implements Player {
 	public int getTotal() {
 		return this.total;
 	}
-	
+
 	@Override
 	public void takeTurn() {
 		this.getDicePair().rollDice();
 
 		int die1Value = this.getDicePair().getDie1Value();
 		int die2Value = this.getDicePair().getDie2Value();
-		System.out.println("Roll: " + die1Value +"," + die2Value );
-		int total =  this.getTotal();
+
+		int total = this.getTotal();
 		int turnTotal = this.getTurnTotal();
-		
+
 		if (die1Value == 1 || die2Value == 1) {
 			total -= turnTotal;
-	
+
 			this.resetTurnTotal();
 			this.setIsMyTurn(false);
 		} else {
@@ -136,7 +132,7 @@ public abstract class AbstractPlayer implements Player {
 			this.setTurnTotal(turnTotal);
 		}
 		this.setTotal(total);
-	
+
 	}
 
 }

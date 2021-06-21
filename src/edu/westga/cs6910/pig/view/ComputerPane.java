@@ -36,7 +36,6 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 	 */
 	public ComputerPane(Game theGame) {
 		this.theGame = theGame;
-
 		this.theGame.addListener(this);
 
 		this.theComputer = this.theGame.getComputerPlayer();
@@ -52,26 +51,31 @@ public class ComputerPane extends GridPane implements InvalidationListener {
 		topBox.getChildren().add(new Label("~~ " + this.theComputer.getName() + " ~~"));
 		this.add(topBox, 0, 0, 2, 1);
 
-		HBox middleBox = new HBox();
-		middleBox.getStyleClass().add("box-padding");
-		middleBox.getChildren().add(new Label("Dice Values: "));
+		HBox middleTopBox = new HBox();
+		middleTopBox.getStyleClass().add("box-padding");
+		middleTopBox.getChildren().add(new Label("Strategy: " + this.theComputer.getComputerStrategy().getStrategyName()));
+		this.add(middleTopBox, 0, 1);
+		
+		HBox middleBottomBox = new HBox();
+		middleBottomBox.getStyleClass().add("box-padding");
+		middleBottomBox.getChildren().add(new Label("Dice Values: "));
 		this.lblDiceValues = new Label("-, -");
-		middleBox.getChildren().add(this.lblDiceValues);
-		this.add(middleBox, 0, 1);
+		middleBottomBox.getChildren().add(this.lblDiceValues);
+		this.add(middleBottomBox, 0, 2);
 
 		HBox buttonBox = new HBox();
 		buttonBox.getStyleClass().add("box-padding");
 		this.btnTakeTurn = new Button("Take Turn");
 		this.btnTakeTurn.setOnAction(new TakeTurnListener());
 		buttonBox.getChildren().add(this.btnTakeTurn);
-		this.add(buttonBox, 0, 2);
+		this.add(buttonBox, 0, 3);
 
 		HBox bottomBox = new HBox();
 		bottomBox.getStyleClass().add("box-padding");
 		bottomBox.getChildren().add(new Label("Turn Total: "));
 		this.lblTurnTotal = new Label("0");
 		bottomBox.getChildren().add(this.lblTurnTotal);
-		this.add(bottomBox, 0, 3);
+		this.add(bottomBox, 0, 4);
 	}
 
 	@Override

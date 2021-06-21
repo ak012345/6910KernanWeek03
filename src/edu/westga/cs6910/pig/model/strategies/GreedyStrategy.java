@@ -8,6 +8,7 @@ package edu.westga.cs6910.pig.model.strategies;
  */
 
 public class GreedyStrategy implements PigStrategy {
+	private String stragetyName = "Greedy";
 
 	@Override
 	public boolean rollAgain(int numberRollsThisTurn, int numberPointsThisTurn,
@@ -16,6 +17,11 @@ public class GreedyStrategy implements PigStrategy {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public String getStrategyName() {
+		return this.stragetyName;
 	}
 
 }

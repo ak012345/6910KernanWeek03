@@ -94,7 +94,7 @@ public class PigPane extends BorderPane {
 		greedyStrategy.setMnemonicParsing(true);
 		greedyStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+E"));
 		greedyStrategy.setOnAction(new SetGreedyStrategyListener());
-		
+
 		computerStrategy.getItems().addAll(cautiousStrategy, randomStrategy, greedyStrategy);
 		return computerStrategy;
 	}
@@ -211,26 +211,26 @@ public class PigPane extends BorderPane {
 		@Override
 		public void handle(ActionEvent setStrategy) {
 			CautiousStrategy cautiousComputerStrategy = new CautiousStrategy();
-			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(cautiousComputerStrategy);		
-			System.out.println("Computer strat set: Cautious");
+			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(cautiousComputerStrategy);
+			PigPane.this.computerPlayerPane();
 		}
 	}
-	
+
 	private class SetRandomStrategyListener implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent setStrategy) {
 			RandomStrategy randomComputerStrategy = new RandomStrategy();
-			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(randomComputerStrategy);		
-			System.out.println("Computer strat set: Random");
+			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(randomComputerStrategy);
+			PigPane.this.computerPlayerPane();
 		}
 	}
-	
+
 	private class SetGreedyStrategyListener implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent setStrategy) {
 			GreedyStrategy greedyComputerStrategy = new GreedyStrategy();
-			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(greedyComputerStrategy);		
-			System.out.println("Computer strat set: Greedy");
+			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(greedyComputerStrategy);
+			PigPane.this.computerPlayerPane();
 		}
 	}
 }

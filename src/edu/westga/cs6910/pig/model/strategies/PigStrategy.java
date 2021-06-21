@@ -20,4 +20,10 @@ public interface PigStrategy {
 	 * @return true if player should roll again.
 	 */
 	boolean rollAgain(int numberRollsThisTurn, int numberPointsThisTurn, int differenceBetweenFinalAndCurrentPoints);
+
+	/**
+	 * Returns the name of the Strategy
+	 * @return a string representation / name of the Strategy
+	 */
+	String getStrategyName();
 }

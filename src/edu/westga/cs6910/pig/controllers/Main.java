@@ -25,7 +25,7 @@ public class Main extends Application {
 		Game theGame = new Game(new HumanPlayer("Human"), new ComputerPlayer(currentStrategy));
 
 		PigPane root = new PigPane(theGame);
-		Scene scene = new Scene(root, 700, 200);
+		Scene scene = new Scene(root, 700, 250);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
