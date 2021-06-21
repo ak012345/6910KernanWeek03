@@ -3,6 +3,7 @@ package edu.westga.cs6910.pig.view;
 import edu.westga.cs6910.pig.model.Game;
 import edu.westga.cs6910.pig.model.Player;
 import edu.westga.cs6910.pig.model.strategies.CautiousStrategy;
+import edu.westga.cs6910.pig.model.strategies.GreedyStrategy;
 import edu.westga.cs6910.pig.model.strategies.RandomStrategy;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -92,7 +93,8 @@ public class PigPane extends BorderPane {
 		MenuItem greedyStrategy = new MenuItem("Gr_eedy");
 		greedyStrategy.setMnemonicParsing(true);
 		greedyStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+E"));
-
+		greedyStrategy.setOnAction(new SetGreedyStrategyListener());
+		
 		computerStrategy.getItems().addAll(cautiousStrategy, randomStrategy, greedyStrategy);
 		return computerStrategy;
 	}
@@ -210,7 +212,7 @@ public class PigPane extends BorderPane {
 		public void handle(ActionEvent setStrategy) {
 			CautiousStrategy cautiousComputerStrategy = new CautiousStrategy();
 			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(cautiousComputerStrategy);		
-			System.out.println("Computer strat set: cautious");
+			System.out.println("Computer strat set: Cautious");
 		}
 	}
 	
@@ -219,7 +221,16 @@ public class PigPane extends BorderPane {
 		public void handle(ActionEvent setStrategy) {
 			RandomStrategy randomComputerStrategy = new RandomStrategy();
 			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(randomComputerStrategy);		
-			System.out.println("Computer strat set: random");
+			System.out.println("Computer strat set: Random");
+		}
+	}
+	
+	private class SetGreedyStrategyListener implements EventHandler<ActionEvent> {
+		@Override
+		public void handle(ActionEvent setStrategy) {
+			GreedyStrategy greedyComputerStrategy = new GreedyStrategy();
+			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(greedyComputerStrategy);		
+			System.out.println("Computer strat set: Greedy");
 		}
 	}
 }

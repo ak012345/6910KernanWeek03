@@ -59,6 +59,7 @@ public class ComputerPlayer extends AbstractPlayer {
 	 * based on the selected strategy
 	 */
 	public void takeTurn() {
+		System.out.println("#rolls this turn" + this.rollsThisTurn);
 		int remainingScore = Game.GOAL_SCORE - this.getTurnTotal();
 
 		super.takeTurn();
@@ -74,6 +75,6 @@ public class ComputerPlayer extends AbstractPlayer {
 			this.setIsMyTurn(false);
 			this.rollsThisTurn = 0;
 		}
-
+		
 	}
 }
