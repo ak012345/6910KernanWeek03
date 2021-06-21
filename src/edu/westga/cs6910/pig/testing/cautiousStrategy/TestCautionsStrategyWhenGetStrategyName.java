@@ -14,7 +14,7 @@ import edu.westga.cs6910.pig.model.strategies.PigStrategy;
  * @version 6/21/2021
  *
  */
-class TestCautionsStrategyWhenGetStartegyName {
+class TestCautionsStrategyWhenGetStrategyName {
 
 	@Test
 	void testCautiousStrategyGetName() {
