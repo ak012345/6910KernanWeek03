@@ -43,10 +43,10 @@ public class PigPane extends BorderPane {
 
 		this.pnContent = new BorderPane();
 
-		this.addFirstPlayerChooserPane(theGame);
-		this.humanPlayerPane(theGame);
-		this.statusPane(theGame);
-		this.computerPlayerPane(theGame);
+		this.addFirstPlayerChooserPane();
+		this.humanPlayerPane();
+		this.statusPane();
+		this.computerPlayerPane();
 		this.windowMenu();
 		this.setCenter(this.pnContent);
 	}
@@ -93,36 +93,36 @@ public class PigPane extends BorderPane {
 		return computerStrategy;
 	}
 
-	private void addFirstPlayerChooserPane(Game theGame) {
+	private void addFirstPlayerChooserPane() {
 		HBox topBox = new HBox();
 		topBox.getStyleClass().add("pane-border");
-		this.pnChooseFirstPlayer = new NewGamePane(theGame);
+		this.pnChooseFirstPlayer = new NewGamePane(this.theGame);
 		topBox.getChildren().add(this.pnChooseFirstPlayer);
 		this.pnContent.setTop(topBox);
 	}
 
-	private void humanPlayerPane(Game theGame) {
+	private void humanPlayerPane() {
 		HBox humanPlayerBox = new HBox();
 		humanPlayerBox.getStyleClass().add("pane-border");
-		this.pnHumanPlayer = new HumanPane(theGame);
+		this.pnHumanPlayer = new HumanPane(this.theGame);
 		humanPlayerBox.getChildren().add(this.pnHumanPlayer);
 		this.pnHumanPlayer.setDisable(true);
 		this.pnContent.setLeft(humanPlayerBox);
 
 	}
 
-	private void statusPane(Game theGame) {
+	private void statusPane() {
 		HBox statusBox = new HBox();
 		statusBox.getStyleClass().add("pane-border");
-		this.pnGameInfo = new StatusPane(theGame);
+		this.pnGameInfo = new StatusPane(this.theGame);
 		statusBox.getChildren().add(this.pnGameInfo);
 		this.pnContent.setCenter(statusBox);
 	}
 
-	private void computerPlayerPane(Game theGame) {
+	private void computerPlayerPane() {
 		HBox computerPlayerBox = new HBox();
 		computerPlayerBox.getStyleClass().add("pane-border");
-		this.pnComputerPlayer = new ComputerPane(theGame);
+		this.pnComputerPlayer = new ComputerPane(this.theGame);
 		computerPlayerBox.getChildren().add(this.pnComputerPlayer);
 		this.pnComputerPlayer.setDisable(true);
 		this.pnContent.setRight(computerPlayerBox);
