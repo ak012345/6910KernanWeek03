@@ -14,8 +14,14 @@ public class RandomStrategy implements PigStrategy {
 	@Override
 	public boolean rollAgain(int numberRollsThisTurn, int numberPointsThisTurn,
 			int differenceBetweenFinalAndCurrentPoints) {
-		System.out.println("Rolling again...");
-		return Math.random() < .5;
+		
+		boolean rollAgain = Math.random() > .5;
+//		if (rollAgain) {
+//			System.out.println("Rolling again..." + rollAgain);
+//		} else {
+//			System.out.println("NO roll again: " + rollAgain);
+//		}
+		return rollAgain;
 	}
 
 }

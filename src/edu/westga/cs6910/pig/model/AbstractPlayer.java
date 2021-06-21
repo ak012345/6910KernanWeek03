@@ -121,6 +121,7 @@ public abstract class AbstractPlayer implements Player {
 
 		int die1Value = this.getDicePair().getDie1Value();
 		int die2Value = this.getDicePair().getDie2Value();
+		System.out.println("Roll: " + die1Value +"," + die2Value );
 		int total =  this.getTotal();
 		int turnTotal = this.getTurnTotal();
 		

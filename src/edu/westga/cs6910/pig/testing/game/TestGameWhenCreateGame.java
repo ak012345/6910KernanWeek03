@@ -25,7 +25,7 @@ public class TestGameWhenCreateGame {
 		PigStrategy currentStrategy =  new CautiousStrategy();
 		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		Game testGame = new Game(testHuman, testComputerPlayer);
-		assertEquals("Goal Score: 20\r\n" + "Alex: 0\r\n" + "Simple Computer: 0", testGame.toString());
+		assertEquals("Goal Score: " + Game.GOAL_SCORE + "\r\n" + "Alex: 0\r\n" + "Simple Computer: 0", testGame.toString());
 	}
 
 }

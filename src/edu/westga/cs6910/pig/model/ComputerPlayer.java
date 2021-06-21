@@ -68,9 +68,12 @@ public class ComputerPlayer extends AbstractPlayer {
 		if (rollAgain && this.getIsMyTurn()) {
 			this.rollsThisTurn++;
 			this.takeTurn();
-		} else if (!rollAgain) {
+		} 
+		
+		if (!rollAgain || !this.getIsMyTurn()) {
 			this.setIsMyTurn(false);
+			this.rollsThisTurn = 0;
 		}
-		this.rollsThisTurn = 0;
+
 	}
 }
