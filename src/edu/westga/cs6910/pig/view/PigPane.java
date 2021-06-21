@@ -2,6 +2,7 @@ package edu.westga.cs6910.pig.view;
 
 import edu.westga.cs6910.pig.model.Game;
 import edu.westga.cs6910.pig.model.Player;
+import edu.westga.cs6910.pig.model.strategies.CautiousStrategy;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
@@ -80,14 +81,15 @@ public class PigPane extends BorderPane {
 		MenuItem cautiousStrategy = new MenuItem("_Cautious");
 		cautiousStrategy.setMnemonicParsing(true);
 		cautiousStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+C"));
-
-		MenuItem greedyStrategy = new MenuItem("Gr_eedy");
-		greedyStrategy.setMnemonicParsing(true);
-		greedyStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+E"));
+		cautiousStrategy.setOnAction(new SetCautiousStrategyListener());
 
 		MenuItem randomStrategy = new MenuItem("_Random");
 		randomStrategy.setMnemonicParsing(true);
 		randomStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+R"));
+
+		MenuItem greedyStrategy = new MenuItem("Gr_eedy");
+		greedyStrategy.setMnemonicParsing(true);
+		greedyStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+E"));
 
 		computerStrategy.getItems().addAll(cautiousStrategy, randomStrategy, greedyStrategy);
 		return computerStrategy;
@@ -108,7 +110,6 @@ public class PigPane extends BorderPane {
 		humanPlayerBox.getChildren().add(this.pnHumanPlayer);
 		this.pnHumanPlayer.setDisable(true);
 		this.pnContent.setLeft(humanPlayerBox);
-
 	}
 
 	private void statusPane() {
@@ -186,6 +187,7 @@ public class PigPane extends BorderPane {
 		 * Defines the listener for human player first button.
 		 */
 		private class HumanFirstListener implements EventHandler<ActionEvent> {
+
 			/**
 			 * Sets up user interface and starts a new game. Event handler for a click in
 			 * the human player button.
@@ -198,6 +200,15 @@ public class PigPane extends BorderPane {
 				PigPane.this.theGame.startNewGame(NewGamePane.this.theHuman);
 
 			}
+		}
+	}
+
+	private class SetCautiousStrategyListener implements EventHandler<ActionEvent> {
+		@Override
+		public void handle(ActionEvent setStrategy) {
+			CautiousStrategy cautiousComputerStrategy = new CautiousStrategy();
+			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(cautiousComputerStrategy);		
+			System.out.println("COmputer strat set: cautious");
 		}
 	}
 }

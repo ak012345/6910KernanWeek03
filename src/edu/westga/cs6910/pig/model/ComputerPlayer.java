@@ -10,7 +10,7 @@ import edu.westga.cs6910.pig.model.strategies.PigStrategy;
  * @version 6/8/2021
  */
 public class ComputerPlayer extends AbstractPlayer {
-	private static final String NAME = "Simple Computer";
+	private String name;
 	private int maximumRolls;
 	private PigStrategy currentStrategy;
 	private int rollsThisTurn;
@@ -22,7 +22,9 @@ public class ComputerPlayer extends AbstractPlayer {
 	 */
 
 	public ComputerPlayer(PigStrategy currentStrategy) {
-		super(NAME);
+		// fixme
+
+		super("Simple Computer");
 		if (currentStrategy == null) {
 			throw new IllegalArgumentException("The current strategy cannot be null");
 		}
@@ -66,6 +68,15 @@ public class ComputerPlayer extends AbstractPlayer {
 			this.takeTurn();
 		}
 		this.rollsThisTurn = 0;
+	}
+
+	/**
+	 * 
+	 * @param name of the computer
+	 */
+	public void setComputerPlayerName(String name) {
+		this.name = name;
+
 	}
 
 }
