@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs6910.pig.model.ComputerPlayer;
 import edu.westga.cs6910.pig.model.Player;
+import edu.westga.cs6910.pig.model.strategies.CautiousStrategy;
+import edu.westga.cs6910.pig.model.strategies.PigStrategy;
 
 /**
  * Tests the creation of a ComputerPlayer Object as well as the associated
@@ -23,26 +25,30 @@ class TestComputerPlayerWhenCreateComputerPlayer {
 
 	@Test
 	void testWhenCreateComputerNameIsAlex() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		assertEquals("Simple Computer", testComputerPlayer.getName());
 	}
 
 	@Test
 	void testWhenCreateComputerDiceVaueInitializedDieOneEqualsOne() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		assertEquals(1, testComputerPlayer.getDicePair().getDie1Value());
 
 	}
 
 	@Test
 	void testWhenCreateComputerDiceVaueInitializedDieTwoEqualsTwo() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		assertEquals(1, testComputerPlayer.getDicePair().getDie1Value());
 	}
 
 	@Test
 	void testComputerPlayerIsAnInstanceOfPlayer() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		assertTrue(testComputerPlayer instanceof Player);
 	}
 

@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.cs6910.pig.model.ComputerPlayer;
+import edu.westga.cs6910.pig.model.strategies.CautiousStrategy;
+import edu.westga.cs6910.pig.model.strategies.PigStrategy;
 
 /**
  * Tests the setter/getter methods of the ComputerPLayer class.
@@ -17,14 +19,16 @@ class TestComputerPlayerWhenSetAndGetIsMyTurn {
 
 	@Test
 	void testWhenIsMyTurnCalledIsTrue() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		testComputerPlayer.setIsMyTurn(true);
 		assertTrue(testComputerPlayer.getIsMyTurn());
 	}
 
 	@Test
 	void testWhenIsMyTurnCalledIsFalse() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		testComputerPlayer.setIsMyTurn(false);
 		assertFalse(testComputerPlayer.getIsMyTurn());
 	}

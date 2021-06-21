@@ -5,14 +5,14 @@ import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.cs6910.pig.model.ComputerPlayer;
+import edu.westga.cs6910.pig.model.strategies.CautiousStrategy;
+import edu.westga.cs6910.pig.model.strategies.PigStrategy;
 
 /**
  * JUnit Tests that ensures a Computer Players turn is taken properly.
- * Conditions verified herein are: 
- * 1) Turn ends when rolls a 1 
- * 2) TurnTotal is zeroized when rolling a 1 
- * 3) when roll !=1, sum of dice are added to turn total.
- * 4) Haman's Game total remains after rolling a 1
+ * Conditions verified herein are: 1) Turn ends when rolls a 1 2) TurnTotal is
+ * zeroized when rolling a 1 3) when roll !=1, sum of dice are added to turn
+ * total. 4) Haman's Game total remains after rolling a 1
  * 
  * @author Alex Kernan
  * @version 6/12/2021
@@ -21,7 +21,8 @@ class TestComputerPlayerWhenTakeTurn {
 
 	@Test
 	void testTurnEndsWhenRollsManyTimesAndAtLeastASingleDieReadsOne() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		boolean oneHasBeenRolled;
 		testComputerPlayer.setIsMyTurn(true);
 
@@ -37,7 +38,8 @@ class TestComputerPlayerWhenTakeTurn {
 
 	@Test
 	void testTurnTotalIsResetWhenRollsManyTimes() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		boolean oneHasBeenRolled;
 		testComputerPlayer.setIsMyTurn(true);
 
@@ -53,7 +55,8 @@ class TestComputerPlayerWhenTakeTurn {
 
 	@Test
 	void testTurnTotalIsSumOfDiceWhenOneHasntBeenRolled() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		boolean oneHasBeenRolled;
 		int die1Value;
 		int die2Value;
@@ -81,7 +84,8 @@ class TestComputerPlayerWhenTakeTurn {
 
 	@Test
 	void testGameTotalRemainsAfterDieEqualsOne() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		boolean oneHasBeenRolled;
 		testComputerPlayer.setTotal(50);
 		testComputerPlayer.setIsMyTurn(true);

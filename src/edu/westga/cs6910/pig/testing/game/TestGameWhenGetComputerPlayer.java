@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6910.pig.model.ComputerPlayer;
 import edu.westga.cs6910.pig.model.Game;
 import edu.westga.cs6910.pig.model.HumanPlayer;
+import edu.westga.cs6910.pig.model.strategies.CautiousStrategy;
+import edu.westga.cs6910.pig.model.strategies.PigStrategy;
 
 /**
  * JUnit test for the getHumanPlayer method() within the game model class.
@@ -20,7 +22,8 @@ public class TestGameWhenGetComputerPlayer {
 	@Test
 	void testGetComputerPlayerMethod() {
 		HumanPlayer testHuman = new HumanPlayer("Alex");
-		ComputerPlayer testComputer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputer = new ComputerPlayer(currentStrategy);
 		Game testGame = new Game(testHuman, testComputer);
 		assertEquals(testComputer, testGame.getComputerPlayer());
 	}

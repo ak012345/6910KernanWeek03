@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.cs6910.pig.model.ComputerPlayer;
+import edu.westga.cs6910.pig.model.strategies.CautiousStrategy;
+import edu.westga.cs6910.pig.model.strategies.PigStrategy;
 
 /**
  * JUnit test that checks if the player's turnTotoal is set to zero via the
@@ -18,7 +20,8 @@ class TestComputerPlayerWhenResetTurnTotal {
 
 	@Test
 	void testWhenSettingTotalTo50() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		testComputerPlayer.setTurnTotal(50);
 		testComputerPlayer.resetTurnTotal();
 		assertEquals(0, testComputerPlayer.getTurnTotal());

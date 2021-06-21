@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6910.pig.model.ComputerPlayer;
 import edu.westga.cs6910.pig.model.Game;
 import edu.westga.cs6910.pig.model.HumanPlayer;
+import edu.westga.cs6910.pig.model.strategies.CautiousStrategy;
+import edu.westga.cs6910.pig.model.strategies.PigStrategy;
 
 /**
  * 
@@ -22,8 +24,9 @@ class TestGamePlayAndWinCriteria {
 	@Test
 	void testGameWinCriteriaHumanPlayerRollsEveryTimeUnlessHitAOne() {
 		HumanPlayer testHuman = new HumanPlayer("Alex");
-		ComputerPlayer testComputer = new ComputerPlayer();
-		Game testGame = new Game(testHuman, testComputer);
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
+		Game testGame = new Game(testHuman, testComputerPlayer);
 		testGame.startNewGame(testHuman);
 		int numberOfTurnsTaken = 0;
 		while (!testGame.isGameOver()) {
@@ -38,8 +41,9 @@ class TestGamePlayAndWinCriteria {
 	@Test
 	void testGameWinCriteriaHumanPlayerHoldsEveryTime() {
 		HumanPlayer testHuman = new HumanPlayer("Alex");
-		ComputerPlayer testComputer = new ComputerPlayer();
-		Game testGame = new Game(testHuman, testComputer);
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
+		Game testGame = new Game(testHuman, testComputerPlayer);
 		testGame.startNewGame(testHuman);
 		int numberOfTurnsTaken = 0;
 		while (!testGame.isGameOver()) {
@@ -60,9 +64,10 @@ class TestGamePlayAndWinCriteria {
 	@Test
 	void testGameWinCriteriaHumanPlayerDecidesToRollFiftyPercentOfTheTime() {
 		HumanPlayer testHuman = new HumanPlayer("Alex");
-		ComputerPlayer testComputer = new ComputerPlayer();
-		Game testGame = new Game(testHuman, testComputer);
-		testGame.startNewGame(testComputer);
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
+		Game testGame = new Game(testHuman, testComputerPlayer);
+		testGame.startNewGame(testComputerPlayer);
 		int numberOfTurnsTaken = 0;
 		double shouldRollThreshHold = .5;
 		double randomChanceToRoll;

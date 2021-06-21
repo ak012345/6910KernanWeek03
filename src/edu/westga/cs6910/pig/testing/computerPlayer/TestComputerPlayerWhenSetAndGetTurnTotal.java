@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.cs6910.pig.model.ComputerPlayer;
+import edu.westga.cs6910.pig.model.strategies.CautiousStrategy;
+import edu.westga.cs6910.pig.model.strategies.PigStrategy;
 
 /**
  * JUnit test that validates that the ComputerPLayer's TurnTotal getters/setters
@@ -17,7 +19,8 @@ class TestComputerPlayerWhenSetAndGetTurnTotal {
 
 	@Test
 	void testWhenSettingTotalTo50() {
-		ComputerPlayer testComputerPlayer = new ComputerPlayer();
+		PigStrategy currentStrategy =  new CautiousStrategy();
+		ComputerPlayer testComputerPlayer = new ComputerPlayer(currentStrategy);
 		testComputerPlayer.setTurnTotal(50);
 		assertEquals(50, testComputerPlayer.getTurnTotal());
 	}
