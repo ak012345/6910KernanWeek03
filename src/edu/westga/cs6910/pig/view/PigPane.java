@@ -11,6 +11,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
@@ -80,17 +81,23 @@ public class PigPane extends BorderPane {
 		computerStrategy.setMnemonicParsing(true);
 		computerStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+S"));
 
-		MenuItem cautiousStrategy = new MenuItem("_Cautious");
+		ToggleGroup strategyToggleGroup = new ToggleGroup();
+
+		RadioMenuItem cautiousStrategy = new RadioMenuItem("_Cautious");
+		cautiousStrategy.setSelected(true);
+		cautiousStrategy.setToggleGroup(strategyToggleGroup);
 		cautiousStrategy.setMnemonicParsing(true);
 		cautiousStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+C"));
 		cautiousStrategy.setOnAction(new SetCautiousStrategyListener());
 
-		MenuItem randomStrategy = new MenuItem("_Random");
+		RadioMenuItem randomStrategy = new RadioMenuItem("_Random");
+		randomStrategy.setToggleGroup(strategyToggleGroup);
 		randomStrategy.setMnemonicParsing(true);
 		randomStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+R"));
 		randomStrategy.setOnAction(new SetRandomStrategyListener());
 
-		MenuItem greedyStrategy = new MenuItem("Gr_eedy");
+		RadioMenuItem greedyStrategy = new RadioMenuItem("Gr_eedy");
+		greedyStrategy.setToggleGroup(strategyToggleGroup);
 		greedyStrategy.setMnemonicParsing(true);
 		greedyStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+E"));
 		greedyStrategy.setOnAction(new SetGreedyStrategyListener());
