@@ -10,8 +10,7 @@ import edu.westga.cs6910.pig.model.strategies.PigStrategy;
  * @version 6/8/2021
  */
 public class ComputerPlayer extends AbstractPlayer {
-	private String name;
-	private int maximumRolls;
+
 	private PigStrategy currentStrategy;
 	private int rollsThisTurn;
 
@@ -22,7 +21,7 @@ public class ComputerPlayer extends AbstractPlayer {
 	 */
 
 	public ComputerPlayer(PigStrategy currentStrategy) {
-		// fixme
+		// fixm
 
 		super("Simple Computer");
 		if (currentStrategy == null) {
@@ -56,27 +55,22 @@ public class ComputerPlayer extends AbstractPlayer {
 
 	@Override
 	/**
-	 * 
-	 * @see Player#takeTurn()
-	 * 
+	 * Treats the Computer Player as a human player, but takes turns recursivly
+	 * based on the selected strategy
 	 */
 	public void takeTurn() {
+		int remainingScore = Game.GOAL_SCORE - this.getTurnTotal();
+
 		super.takeTurn();
-		super.setIsMyTurn(false);
-		if (this.currentStrategy.rollAgain(1, 1, 1)) {
+		boolean rollAgain = this.currentStrategy.rollAgain(this.rollsThisTurn, super.getTurnTotal(), remainingScore);
+			
+
+		if (rollAgain && this.getIsMyTurn()) {
 			this.rollsThisTurn++;
 			this.takeTurn();
+		} else if (!rollAgain) {
+			this.setIsMyTurn(false);
 		}
 		this.rollsThisTurn = 0;
 	}
-
-	/**
-	 * 
-	 * @param name of the computer
-	 */
-	public void setComputerPlayerName(String name) {
-		this.name = name;
-
-	}
-
 }

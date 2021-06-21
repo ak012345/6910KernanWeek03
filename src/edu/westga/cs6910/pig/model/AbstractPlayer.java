@@ -69,6 +69,16 @@ public abstract class AbstractPlayer implements Player {
 		}
 		this.total = total;
 	}
+	
+//	/**
+//	 * sets the computer name instance variable.
+//	 * 
+//	 * @param name of the computer
+//	 */
+//	public void setComputerPlayerName(String name) {
+//		this.name = name;
+//
+//	}
 
 	@Override
 	public void setIsMyTurn(boolean isMyTurn) {

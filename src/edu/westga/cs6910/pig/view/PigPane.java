@@ -3,6 +3,7 @@ package edu.westga.cs6910.pig.view;
 import edu.westga.cs6910.pig.model.Game;
 import edu.westga.cs6910.pig.model.Player;
 import edu.westga.cs6910.pig.model.strategies.CautiousStrategy;
+import edu.westga.cs6910.pig.model.strategies.RandomStrategy;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
@@ -86,6 +87,7 @@ public class PigPane extends BorderPane {
 		MenuItem randomStrategy = new MenuItem("_Random");
 		randomStrategy.setMnemonicParsing(true);
 		randomStrategy.setAccelerator(KeyCombination.valueOf("Ctrl+R"));
+		randomStrategy.setOnAction(new SetRandomStrategyListener());
 
 		MenuItem greedyStrategy = new MenuItem("Gr_eedy");
 		greedyStrategy.setMnemonicParsing(true);
@@ -208,7 +210,16 @@ public class PigPane extends BorderPane {
 		public void handle(ActionEvent setStrategy) {
 			CautiousStrategy cautiousComputerStrategy = new CautiousStrategy();
 			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(cautiousComputerStrategy);		
-			System.out.println("COmputer strat set: cautious");
+			System.out.println("Computer strat set: cautious");
+		}
+	}
+	
+	private class SetRandomStrategyListener implements EventHandler<ActionEvent> {
+		@Override
+		public void handle(ActionEvent setStrategy) {
+			RandomStrategy randomComputerStrategy = new RandomStrategy();
+			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(randomComputerStrategy);		
+			System.out.println("Computer strat set: random");
 		}
 	}
 }
