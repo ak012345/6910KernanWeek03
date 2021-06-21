@@ -19,29 +19,4 @@ public class HumanPlayer extends AbstractPlayer {
 		super(name);
 	}
 
-	/**
-	 * takes the players turn. consists of rolling the dice, adding the totals, and
-	 * setting the players turn
-	 */
-	public void takeTurn() {
-		super.getDicePair().rollDice();
-
-		int die1Value = super.getDicePair().getDie1Value();
-		int die2Value = super.getDicePair().getDie2Value();
-		int total =  super.getTotal();
-		int turnTotal = super.getTurnTotal();
-		
-		if (die1Value == 1 || die2Value == 1) {
-			total -= turnTotal;
-	
-			super.resetTurnTotal();
-			super.setIsMyTurn(false);
-		} else {
-			turnTotal += die1Value + die2Value;
-			total += die1Value + die2Value;
-			super.setTurnTotal(turnTotal);
-		}
-		super.setTotal(total);
-	}
-
 }

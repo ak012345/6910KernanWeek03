@@ -104,5 +104,28 @@ public abstract class AbstractPlayer implements Player {
 	public int getTotal() {
 		return this.total;
 	}
+	
+	@Override
+	public void takeTurn() {
+		this.getDicePair().rollDice();
+
+		int die1Value = this.getDicePair().getDie1Value();
+		int die2Value = this.getDicePair().getDie2Value();
+		int total =  this.getTotal();
+		int turnTotal = this.getTurnTotal();
+		
+		if (die1Value == 1 || die2Value == 1) {
+			total -= turnTotal;
+	
+			this.resetTurnTotal();
+			this.setIsMyTurn(false);
+		} else {
+			turnTotal += die1Value + die2Value;
+			total += die1Value + die2Value;
+			this.setTurnTotal(turnTotal);
+		}
+		this.setTotal(total);
+	
+	}
 
 }
