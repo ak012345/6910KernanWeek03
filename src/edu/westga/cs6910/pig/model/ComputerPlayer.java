@@ -64,11 +64,10 @@ public class ComputerPlayer extends AbstractPlayer {
 
 			super.takeTurn();
 			this.rollsThisTurn++;
-			System.out.println("Roll # " + this.rollsThisTurn);
 			remainingPointsNeeded = Game.GOAL_SCORE - this.getTotal();
 			rollAgain = this.currentStrategy.rollAgain(this.rollsThisTurn, super.getTurnTotal(), remainingPointsNeeded);
 
-		} while (rollAgain);
+		} while (rollAgain && this.getIsMyTurn());
 
 		this.setIsMyTurn(false);
 		this.rollsThisTurn = 0;

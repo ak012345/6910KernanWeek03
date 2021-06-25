@@ -21,6 +21,7 @@ public class Die {
 	 */
 	public void roll() {
 		this.numberShowing = (int) (Math.random() * 6) + 1;
+
 	}
 
 	/**

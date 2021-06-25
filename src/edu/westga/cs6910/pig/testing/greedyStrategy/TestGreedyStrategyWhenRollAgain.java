@@ -33,7 +33,7 @@ class TestGreedyStrategyWhenRollAgain {
 	@Test
 	void testGreedyStrategyRollAgainAfterThreeRollsShouldBeFalse() {
 		PigStrategy testStrategy = new GreedyStrategy();
-		assertFalse(testStrategy.rollAgain(2, 99, 99));
+		assertFalse(testStrategy.rollAgain(3, 99, 99));
 	}
 
 }
