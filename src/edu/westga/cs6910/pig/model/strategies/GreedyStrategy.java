@@ -14,7 +14,6 @@ public class GreedyStrategy implements PigStrategy {
 	public boolean rollAgain(int numberRollsThisTurn, int numberPointsThisTurn,
 			int remainingPointsNeeded) {
 		
-		
 		if (numberRollsThisTurn < 3 && remainingPointsNeeded > 0) {
 			return true;
 		}
