@@ -13,9 +13,11 @@ public class RandomStrategy implements PigStrategy {
 	private String stragetyName = "Random";
 
 	@Override
-	public boolean rollAgain(int numberRollsThisTurn, int numberPointsThisTurn,
-			int pointsNeededToWin) {
-		return Math.random() > .1;
+	public boolean rollAgain(int numberRollsThisTurn, int numberPointsThisTurn, int pointsNeededToWin) {
+		if (pointsNeededToWin > 0) {
+			return Math.random() > .5;
+		}
+		return false;
 	}
 
 	@Override

@@ -12,9 +12,9 @@ public class GreedyStrategy implements PigStrategy {
 
 	@Override
 	public boolean rollAgain(int numberRollsThisTurn, int numberPointsThisTurn,
-			int remainingPointsNeeded) {
+			int pointsNeededToWin) {
 		
-		if (numberRollsThisTurn < 3 && remainingPointsNeeded > 0) {
+		if (numberRollsThisTurn < 3 && pointsNeededToWin > 0) {
 			return true;
 		}
 		return false;

@@ -85,7 +85,7 @@ public class Game implements Observable {
 		this.currentPlayerObject.setValue(null);
 		this.currentPlayerObject.setValue(currentPlayer);
 
-		if ((this.currentPlayerObject.getValue() != currentPlayer)) {
+		if (!this.currentPlayerObject.getValue().getIsMyTurn()) {
 			this.hold();
 		}
 

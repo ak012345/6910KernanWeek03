@@ -30,6 +30,7 @@ public class PigPane extends BorderPane {
 	private BorderPane pnContent;
 	private HumanPane pnHumanPlayer;
 	private ComputerPane pnComputerPlayer;
+	private MenuBar windowMenu;
 	private StatusPane pnGameInfo;
 	private Pane pnChooseFirstPlayer;
 
@@ -56,7 +57,7 @@ public class PigPane extends BorderPane {
 	}
 
 	private void windowMenu() {
-		MenuBar windowMenu = new MenuBar();
+		this.windowMenu = new MenuBar();
 		Menu gameMenu = this.createGameMenu();
 		Menu computerStrategyMenu = this.createComputerStrategyMenu();
 		windowMenu.getMenus().addAll(gameMenu, computerStrategyMenu);
