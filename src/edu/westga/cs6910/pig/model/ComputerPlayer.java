@@ -53,18 +53,20 @@ public class ComputerPlayer extends AbstractPlayer {
 
 	@Override
 	/**
-	 * Treats the Computer Player as a human player, but takes turns 
-	 * based on the selected strategy
+	 * Treats the Computer Player as a human player, but takes turns based on the
+	 * selected strategy
 	 */
 	public void takeTurn() {
 
 		int remainingPointsNeeded;
 		boolean rollAgain;
 		do {
+
 			super.takeTurn();
 			this.rollsThisTurn++;
-			remainingPointsNeeded = Game.GOAL_SCORE - this.getTotal() - this.getTurnTotal();
-			rollAgain = this.currentStrategy.rollAgain(this.rollsThisTurn, super.getTurnTotal(), this.getTotal());
+			System.out.println("Roll # " + this.rollsThisTurn);
+			remainingPointsNeeded = Game.GOAL_SCORE - this.getTotal();
+			rollAgain = this.currentStrategy.rollAgain(this.rollsThisTurn, super.getTurnTotal(), remainingPointsNeeded);
 
 		} while (rollAgain);
 
