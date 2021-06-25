@@ -20,7 +20,8 @@ public class Die {
 	 * Gives the Die a new value 1 - 6.
 	 */
 	public void roll() {
-		this.numberShowing = (int) (Math.random() * 6) + 1;
+//		this.numberShowing = (int) (Math.random() * 6) + 1;
+		this.numberShowing =3;
 	}
 
 	/**

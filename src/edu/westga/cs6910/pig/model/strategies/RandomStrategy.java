@@ -14,8 +14,8 @@ public class RandomStrategy implements PigStrategy {
 
 	@Override
 	public boolean rollAgain(int numberRollsThisTurn, int numberPointsThisTurn,
-			int differenceBetweenFinalAndCurrentPoints) {
-		return Math.random() > .5;
+			int pointsNeededToWin) {
+		return Math.random() > .1;
 	}
 
 	@Override
