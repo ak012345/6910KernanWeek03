@@ -60,9 +60,9 @@ public class PigPane extends BorderPane {
 		this.windowMenu = new MenuBar();
 		Menu gameMenu = this.createGameMenu();
 		Menu computerStrategyMenu = this.createComputerStrategyMenu();
-		windowMenu.getMenus().addAll(gameMenu, computerStrategyMenu);
-		
-		this.setTop(windowMenu);
+		this.windowMenu.getMenus().addAll(gameMenu, computerStrategyMenu);
+
+		this.setTop(this.windowMenu);
 	}
 
 	private Menu createGameMenu() {
@@ -105,7 +105,7 @@ public class PigPane extends BorderPane {
 		greedyStrategy.setOnAction(new SetGreedyStrategyListener());
 
 		computerStrategy.getItems().addAll(cautiousStrategy, randomStrategy, greedyStrategy);
-		
+
 		return computerStrategy;
 	}
 
@@ -139,8 +139,9 @@ public class PigPane extends BorderPane {
 		computerPlayerBox.getStyleClass().add("pane-border");
 		this.pnComputerPlayer = new ComputerPane(this.theGame);
 		computerPlayerBox.getChildren().add(this.pnComputerPlayer);
-		
-		if (this.theGame.getCurrentPlayer() == null || this.theGame.getCurrentPlayer() == this.theGame.getHumanPlayer()) {
+
+		if (this.theGame.getCurrentPlayer() == null
+				|| this.theGame.getCurrentPlayer() == this.theGame.getHumanPlayer()) {
 			this.pnComputerPlayer.setDisable(true);
 		}
 
@@ -224,28 +225,42 @@ public class PigPane extends BorderPane {
 	private class SetCautiousStrategyListener implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent setStrategy) {
-			
-			CautiousStrategy cautiousComputerStrategy = new CautiousStrategy();
-			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(cautiousComputerStrategy);
-			PigPane.this.computerPlayerPane();
+			if (PigPane.this.theGame.isGameOver() && PigPane.this.pnChooseFirstPlayer.isDisable()) {
+				PigPane.this.windowMenu.setDisable(true);
+			} else {
+				CautiousStrategy cautiousComputerStrategy = new CautiousStrategy();
+				PigPane.this.theGame.getComputerPlayer().setComputerStrategy(cautiousComputerStrategy);
+				PigPane.this.computerPlayerPane();
+
+			}
 		}
 	}
 
 	private class SetRandomStrategyListener implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent setStrategy) {
-			RandomStrategy randomComputerStrategy = new RandomStrategy();
-			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(randomComputerStrategy);
-			PigPane.this.computerPlayerPane();
+			if (PigPane.this.theGame.isGameOver() && PigPane.this.pnChooseFirstPlayer.isDisable()) {
+				PigPane.this.windowMenu.setDisable(true);
+			} else {
+				RandomStrategy randomComputerStrategy = new RandomStrategy();
+				PigPane.this.theGame.getComputerPlayer().setComputerStrategy(randomComputerStrategy);
+				PigPane.this.computerPlayerPane();
+
+			}
 		}
+
 	}
 
 	private class SetGreedyStrategyListener implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent setStrategy) {
-			GreedyStrategy greedyComputerStrategy = new GreedyStrategy();
-			PigPane.this.theGame.getComputerPlayer().setComputerStrategy(greedyComputerStrategy);
-			PigPane.this.computerPlayerPane();
+			if (PigPane.this.theGame.isGameOver() && PigPane.this.pnChooseFirstPlayer.isDisable()) {
+				PigPane.this.windowMenu.setDisable(true);
+			} else {
+				GreedyStrategy greedyComputerStrategy = new GreedyStrategy();
+				PigPane.this.theGame.getComputerPlayer().setComputerStrategy(greedyComputerStrategy);
+				PigPane.this.computerPlayerPane();
+			}
 		}
 	}
 }
